@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insurance Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="calculator" aria-labelledby="calculator-title">
+        <header class="header">
+          <p class="eyebrow">Car insurance</p>
+          <h1 id="calculator-title">Insurance calculator</h1>
+        </header>
+
+        <div class="calculator-grid">
+          <form class="fields" id="insurance-form">
+            <div class="field">
+              <label for="age">Age</label>
+              <input id="age" name="age" type="number" min="18" max="100" step="1" value="35" />
+            </div>
+
+            <div class="field">
+              <label for="kw">Power (kW)</label>
+              <input id="kw" name="kw" type="number" min="20" max="500" step="1" value="120" />
+            </div>
+
+            <div class="field">
+              <label for="experience">Driving experience (years)</label>
+              <input id="experience" name="experience" type="number" min="0" max="60" step="1" value="8" />
+            </div>
+
+            <div class="field">
+              <label for="price">New car price (€)</label>
+              <input id="price" name="price" type="number" min="5000" step="100" value="25000" />
+            </div>
+
+            <div class="field field-full">
+              <label for="coverage">Coverage</label>
+              <select id="coverage" name="coverage">
+                <option value="third-party">Third party</option>
+                <option value="third-party-fire-theft">Third party, fire and theft</option>
+                <option value="fully-comprehensive">Fully comprehensive</option>
+              </select>
+            </div>
+          </form>
+
+          <aside class="quote-panel" aria-live="polite">
+            <p class="quote-label">Estimated annual premium</p>
+            <p id="result" class="result">€ 0</p>
+            <p id="status" class="status">Updated automatically as you type.</p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

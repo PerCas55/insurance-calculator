@@ -1,0 +1,152 @@
+:root {
+  --color-background: #ffffff;
+  --color-highlight: #f59e0b;
+  --color-text: #111111;
+  --color-darkred: #7a1d1d;
+  --color-border: #111111;
+  --color-soft: #f4f4f4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.page {
+  width: min(900px, calc(100vw - 32px));
+}
+
+.calculator {
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  padding: 32px;
+}
+
+.header {
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-highlight);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+}
+
+.calculator-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+label {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+  border: 2px solid var(--color-border);
+  background: var(--color-background);
+  color: var(--color-text);
+  padding: 10px 12px;
+  font: inherit;
+}
+
+input:focus,
+select:focus {
+  outline: 3px solid var(--color-highlight);
+  outline-offset: 2px;
+}
+
+input.invalid,
+select.invalid {
+  border-color: var(--color-darkred);
+  color: var(--color-darkred);
+}
+
+.quote-panel {
+  min-height: 100%;
+  border: 2px solid var(--color-border);
+  background: var(--color-soft);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.quote-label {
+  margin: 0 0 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.result {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
+.status {
+  margin: 18px 0 0;
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+
+.status.warning {
+  color: var(--color-darkred);
+}
+
+@media (max-width: 700px) {
+  .calculator {
+    padding: 20px;
+  }
+
+  .calculator-grid,
+  .fields {
+    grid-template-columns: 1fr;
+  }
+}
